@@ -59,7 +59,7 @@
 
     /* === HERO SECTION === */
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                   url("hero-bg.jpg") center/cover no-repeat;
       color: white;
       text-align: center;
@@ -147,13 +147,85 @@
       padding: 0 15px 25px;
     }
 
+    /* === CONTACT SECTION === */
+    #contact {
+      background: linear-gradient(135deg, #003366, #001f3f);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .contact-container {
+      max-width: 700px;
+      margin: auto;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 40px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 25px rgba(0, 170, 255, 0.3);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 0 10px #00aaff;
+    }
+
+    button {
+      background: #00aaff;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0099e6;
+      box-shadow: 0 0 15px #00aaff;
+    }
+
+    .contact-info {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .contact-info a {
+      color: #00aaff;
+      text-decoration: underline;
+    }
+
     /* === FOOTER === */
     footer {
       background: #001f3f;
       color: #fff;
       text-align: center;
       padding: 25px 10px;
-      margin-top: 50px;
       font-size: 0.9rem;
     }
 
@@ -220,6 +292,24 @@
         <img src="product6.jpeg" alt="Power Supply">
         <h3>TrendPower 65W Power Supply</h3>
         <p>Universal power adapter for networking devices and small electronics with built-in surge protection.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-container">
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <p>Email: <a href="mailto:trendandbrands@gmail.com">trendandbrands@gmail.com</a></p>
+        <p>Phone: <a href="tel:+923013258801">+92 301 3258801</a></p>
+        <p>Location: Karachi, Pakistan</p>
       </div>
     </div>
   </section>
