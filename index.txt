@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trend & Brands - Trusted Distributor for Ubiquiti, TP-Link, Cisco & More" />
+  <title>Trend & Brands | Authorized Electronics Distributor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <img src="images/logo.png" alt="Trend & Brands Logo" class="logo">
+      <div class="title">
+        <h1>Trend & Brands</h1>
+        <p>Authorized Distributor | Networking • Smart Devices • Accessories</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h2>Empowering Connectivity, Delivering Innovation</h2>
+      <p>We bring world-class technology products to global resellers and enterprise clients. From routers to security systems — quality and trust define our brand.</p>
+    </div>
+  </section>
+
+  <section id="products" class="container">
+    <h2>Our Product Range</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/product1.jpeg" alt="Ubiquiti Router">
+        <h3>Ubiquiti UniFi Router Pro</h3>
+        <p>Professional-grade router for high-performance networking with intelligent bandwidth management and dual-band support.</p>
+      </div>
+      <div class="product-card">
+        <img src="images/product2.jpeg" alt="Switch">
+        <h3>Cisco 8-Port Gigabit Switch</h3>
+        <p>Advanced Layer 2 switch for seamless connectivity and enterprise-level performance with energy-efficient design.</p>
+      </div>
+      <div class="product-card">
+        <img src="images/product3.jpeg" alt="Access Point">
+        <h3>TP-Link AX3000 Access Point</h3>
+        <p>Next-gen Wi-Fi 6 access point offering superior coverage and connection stability for indoor environments.</p>
+      </div>
+      <div class="product-card">
+        <img src="images/product4.jpeg" alt="Camera">
+        <h3>Ubiquiti Protect G4 Bullet Camera</h3>
+        <p>High-definition security camera with IR night vision, waterproof housing, and remote monitoring support.</p>
+      </div>
+      <div class="product-card">
+        <img src="images/product5.jpeg" alt="Antenna">
+        <h3>Ubiquiti LiteBeam Antenna</h3>
+        <p>Compact outdoor antenna designed for long-range wireless bridge connections and industrial performance.</p>
+      </div>
+      <div class="product-card">
+        <img src="images/product6.jpeg" alt="Power Supply">
+        <h3>TrendPower 65W Power Supply</h3>
+        <p>Universal power adapter for networking devices and small electronics with built-in surge protection.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about container">
+    <h2>About Trend & Brands</h2>
+    <p>
+      Founded in 2021, Trend & Brands is a registered technology distributor specializing in enterprise-grade networking and smart electronic solutions.
+      We partner with world-leading manufacturers like <strong>Ubiquiti, TP-Link,</strong> and <strong>Cisco</strong> to deliver authentic, warranty-backed products to businesses worldwide.
+    </p>
+    <p>
+      With fulfillment centers in the USA and UAE, our mission is to deliver top-quality, certified electronics with transparent service and guaranteed reliability.
+    </p>
+  </section>
+
+  <section id="contact" class="contact container">
+    <h2>Contact Us</h2>
+    <p><strong>Email:</strong> sales@trendbrands.com</p>
+    <p><strong>Phone:</strong> +1 (786) 555-2468</p>
+    <p><strong>Warehouse Address:</strong> 1234 NW 5th Ave, Miami, FL 33127, USA</p>
+    <p><strong>Business Hours:</strong> Mon–Fri: 9:00 AM – 6:00 PM EST</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Trend & Brands. All Rights Reserved | Registered Distributor of Global Electronics</p>
+  </footer>
+
+</body>
+</html>

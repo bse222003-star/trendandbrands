@@ -1,0 +1,159 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #0057ff, #009dff);
+  color: white;
+  padding: 25px 10%;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.title h1 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.title p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Navigation */
+nav {
+  background: #111;
+  padding: 12px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00aaff;
+}
+
+/* Hero Section */
+.hero {
+  background: url('https://images.unsplash.com/photo-1581093458791-9b47b1dd4c2d?auto=format&fit=crop&w=1400&q=60') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 10%;
+}
+
+.hero-text {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+/* Products */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  margin: 15px 0 10px;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.product-card p {
+  padding: 0 15px 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* About */
+.about p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Contact */
+.contact p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background: #0d0d0d;
+  color: #bbb;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
