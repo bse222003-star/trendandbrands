@@ -1,227 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trend & Brands | Networking Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trend & Brands | Networking Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* === RESET === */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Lora', serif; color:#333; background:#fafafa; scroll-behavior:smooth; transition: background 0.5s, color 0.5s; }
+h1,h2,h3 { font-family:'Playfair Display', serif; font-weight:600; color:#222; }
+a { text-decoration:none; color:inherit; }
 
-  <style>
-    /* === RESET === */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Lora', serif; color: #333; background-color: #fafafa; scroll-behavior: smooth; transition: background 0.5s, color 0.5s; }
-    h1,h2,h3 { font-family: 'Playfair Display', serif; font-weight: 600; color: #222; }
-    a { text-decoration: none; color: inherit; }
+/* === DARK MODE === */
+body.dark { background:#111; color:#ddd; }
+body.dark h1,h2,h3 { color:#fddc73; }
+body.dark nav a { color:#ddd; }
+body.dark nav a:hover { color:#fddc73; }
+body.dark header { background:#111; box-shadow:0 2px 15px rgba(255,215,0,0.1); }
+body.dark .hero p, body.dark .product-card p, body.dark #contact p, body.dark .section-content { color:#ccc; }
+body.dark footer { background:#000; color:#888; }
+body.dark footer a { color:#fddc73; }
+body.dark .product-card { background:#1a1a1a; box-shadow:0 4px 20px rgba(255,215,0,0.1); }
+body.dark .product-card:hover { box-shadow:0 8px 25px rgba(255,215,0,0.3); }
 
-    /* === DARK MODE === */
-    body.dark { background-color: #111; color: #ddd; }
-    body.dark h1,h2,h3 { color: #fddc73; }
-    body.dark nav a { color: #ddd; }
-    body.dark nav a:hover { color: #fddc73; }
-    body.dark header { background: #111; box-shadow: 0 2px 15px rgba(255,215,0,0.1); }
-    body.dark .hero p, body.dark .product-card p, body.dark #contact p { color: #ccc; }
-    body.dark footer { background: #000; color: #888; }
-    body.dark footer a { color: #fddc73; }
-    body.dark .product-card { background: #1a1a1a; box-shadow: 0 4px 20px rgba(255,215,0,0.1); }
-    body.dark .product-card:hover { box-shadow: 0 8px 25px rgba(255,215,0,0.3); }
+/* === HEADER === */
+header { background:#fff; padding:25px 60px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 15px rgba(0,0,0,0.08); position:sticky; top:0; z-index:999; transition: background 0.5s, color 0.5s; }
+header h1 { font-size:1.9rem; letter-spacing:1px; color:#b28b00; }
+nav { display:flex; align-items:center; }
+nav a { margin-left:30px; font-weight:500; color:#444; transition: color 0.3s; }
+nav a:hover { color:#b28b00; }
+nav #darkToggle { margin-left:30px; background:#b28b00; color:#fff; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:500; font-size:0.9rem; }
 
-    /* === HEADER === */
-    header {
-      background: #fff;
-      padding: 25px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      transition: background 0.5s, color 0.5s;
-    }
-    header h1 { font-size: 1.9rem; letter-spacing: 1px; color: #b28b00; }
-    nav a { margin-left: 30px; font-weight: 500; color: #444; transition: color 0.3s; }
-    nav a:hover { color: #b28b00; }
+.hamburger { display:none; flex-direction:column; cursor:pointer; }
+.hamburger span { height:3px; width:25px; background:#b28b00; margin:4px 0; border-radius:2px; transition:0.3s; }
+nav.active { display:flex; flex-direction:column; position:absolute; top:70px; right:60px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
+body.dark nav.active { background:#111; }
 
-    /* === HAMBURGER MENU === */
-    .hamburger { display: none; flex-direction: column; cursor: pointer; }
-    .hamburger span { height: 3px; width: 25px; background: #b28b00; margin: 4px 0; border-radius: 2px; transition: 0.3s; }
-    nav.active { display: flex; flex-direction: column; position: absolute; top: 70px; right: 60px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-    body.dark nav.active { background: #111; }
+/* === HERO === */
+.hero { background:linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7") center/cover no-repeat; text-align:center; padding:140px 20px; opacity:0; transform:translateY(30px); animation:fadeIn 1s forwards; }
+body.dark .hero { background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7") center/cover no-repeat; }
+.hero h2 { font-size:2.7rem; color:#222; margin-bottom:15px; }
+body.dark .hero h2 { color:#fddc73; }
+.hero p { color:#555; font-size:1.1rem; max-width:650px; margin:auto; line-height:1.8; }
 
-    /* === HERO === */
-    .hero {
-      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-                  url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7") center/cover no-repeat;
-      text-align: center;
-      padding: 140px 20px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeIn 1s forwards;
-    }
-    body.dark .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7") center/cover no-repeat; }
-    .hero h2 { font-size: 2.7rem; color: #222; margin-bottom: 15px; }
-    body.dark .hero h2 { color: #fddc73; }
-    .hero p { color: #555; font-size: 1.1rem; max-width: 650px; margin: auto; line-height: 1.8; }
-    body.dark .hero p { color: #ccc; }
+/* === SECTIONS === */
+section { padding:90px 40px; opacity:0; transform:translateY(30px); animation:fadeIn 1s forwards; }
+.section-content { max-width:1000px; margin:auto; text-align:center; line-height:1.6; color:#555; }
+body.dark .section-content { color:#ccc; }
+section h2 { font-size:2.2rem; margin-bottom:50px; color:#222; position:relative; }
+body.dark section h2 { color:#fddc73; }
+section h2::after { content:""; width:80px; height:3px; background:#b28b00; display:block; margin:12px auto 0; }
 
-    /* === PRODUCTS === */
-    #products { padding: 90px 40px; text-align: center; background: #fff; }
-    body.dark #products { background: #111; }
-    #products h2 { font-size: 2.2rem; margin-bottom: 50px; color: #222; position: relative; opacity: 0; transform: translateY(30px); animation: fadeIn 1s 0.3s forwards; }
-    body.dark #products h2 { color: #fddc73; }
-    #products h2::after { content: ""; width: 80px; height: 3px; background: #b28b00; display: block; margin: 12px auto 0; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
-    .product-card { background: #fdfdfd; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: all 0.4s ease; opacity: 0; transform: translateY(30px); animation: fadeIn 0.8s forwards; }
-    .product-card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(178,139,0,0.3); }
-    .product-card img { width: 100%; height: 220px; object-fit: cover; }
-    .product-card h3 { margin: 20px 0 10px; color: #b28b00; font-size: 1.1rem; }
-    body.dark .product-card h3 { color: #fddc73; }
-    .product-card p { color: #555; font-size: 0.95rem; padding: 0 15px 25px; }
-    body.dark .product-card p { color: #ccc; }
+/* === PRODUCTS === */
+.product-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:30px; max-width:1200px; margin:auto; }
+.product-card { background:#fdfdfd; border-radius:15px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.1); transition:all 0.4s ease; opacity:0; transform:translateY(30px); animation:fadeIn 0.8s forwards; }
+.product-card:hover { transform:translateY(-8px); box-shadow:0 8px 25px rgba(178,139,0,0.3); }
+.product-card img { width:100%; height:220px; object-fit:cover; }
+.product-card h3 { margin:20px 0 10px; color:#b28b00; font-size:1.1rem; }
+body.dark .product-card h3 { color:#fddc73; }
+.product-card p { color:#555; font-size:0.95rem; padding:0 15px 25px; }
+body.dark .product-card p { color:#ccc; }
 
-    /* === CONTACT === */
-    #contact { background: #f8f8f8; text-align: center; padding: 90px 30px; opacity: 0; transform: translateY(30px); animation: fadeIn 1s 0.6s forwards; }
-    body.dark #contact { background: #111; }
-    #contact h2 { font-size: 2rem; margin-bottom: 30px; color: #222; }
-    body.dark #contact h2 { color: #fddc73; }
-    form { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
-    input, textarea { padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; font-family: 'Lora', serif; transition: 0.3s; background: #fff; color: #333; }
-    body.dark input, body.dark textarea { background: #222; color: #ddd; border-color: #444; }
-    input:focus, textarea:focus { border-color: #b28b00; box-shadow: 0 0 8px rgba(178,139,0,0.3); outline: none; }
-    button { padding: 15px; background: #b28b00; border: none; color: #fff; border-radius: 10px; cursor: pointer; font-size: 1rem; transition: 0.3s; }
-    button:hover { background: #a08000; box-shadow: 0 0 15px rgba(178,139,0,0.4); }
-    .contact-info { margin-top: 25px; color: #555; }
-    body.dark .contact-info { color: #ccc; }
+/* === CONTACT === */
+#contact { background:#f8f8f8; }
+body.dark #contact { background:#111; }
+form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
+input, textarea { padding:15px; border:1px solid #ddd; border-radius:10px; font-size:1rem; font-family:'Lora', serif; transition:0.3s; background:#fff; color:#333; }
+body.dark input, body.dark textarea { background:#222; color:#ddd; border-color:#444; }
+input:focus, textarea:focus { border-color:#b28b00; box-shadow:0 0 8px rgba(178,139,0,0.3); outline:none; }
+button { padding:15px; background:#b28b00; border:none; color:#fff; border-radius:10px; cursor:pointer; font-size:1rem; transition:0.3s; }
+button:hover { background:#a08000; box-shadow:0 0 15px rgba(178,139,0,0.4); }
+.contact-info { margin-top:25px; color:#555; }
+body.dark .contact-info { color:#ccc; }
 
-    /* === FOOTER === */
-    footer { background: #222; color: #bbb; text-align: center; padding: 25px 10px; font-size: 0.9rem; }
-    footer a { color: #b28b00; }
+/* === FOOTER === */
+footer { background:#222; color:#bbb; text-align:center; padding:25px 10px; font-size:0.9rem; }
+footer a { color:#b28b00; }
 
-    /* === CHATBOT === */
-    .chatbot-container { position: fixed; bottom: 25px; right: 25px; width: 320px; background: #fff; border-radius: 15px; box-shadow: 0 6px 25px rgba(0,0,0,0.2); overflow: hidden; display: none; flex-direction: column; z-index: 9999; transition: background 0.5s, color 0.5s; }
-    body.dark .chatbot-container { background: #222; color: #ddd; }
-    .chatbot-header { background: #b28b00; color: #fff; padding: 12px; font-weight: 500; text-align: center; }
-    .chatbot-messages { height: 250px; padding: 15px; overflow-y: auto; font-size: 0.95rem; }
-    .chatbot-input { display: flex; border-top: 1px solid #ddd; }
-    body.dark .chatbot-input { border-top-color: #444; }
-    .chatbot-input input { flex: 1; padding: 12px; border: none; outline: none; background: #fdfdfd; color: #333; }
-    body.dark .chatbot-input input { background: #222; color: #ddd; }
-    .chatbot-input button { background: #b28b00; color: #fff; border: none; padding: 12px 18px; cursor: pointer; }
-    .chat-icon { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background: #b28b00; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 26px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+/* === CHATBOT === */
+.chatbot-container { position:fixed; bottom:25px; right:25px; width:320px; background:#fff; border-radius:15px; box-shadow:0 6px 25px rgba(0,0,0,0.2); overflow:hidden; display:none; flex-direction:column; z-index:9999; transition: background 0.5s, color 0.5s; }
+body.dark .chatbot-container { background:#222; color:#ddd; }
+.chatbot-header { background:#b28b00; color:#fff; padding:12px; font-weight:500; text-align:center; }
+.chatbot-messages { height:250px; padding:15px; overflow-y:auto; font-size:0.95rem; }
+.chatbot-input { display:flex; border-top:1px solid #ddd; }
+body.dark .chatbot-input { border-top-color:#444; }
+.chatbot-input input { flex:1; padding:12px; border:none; outline:none; background:#fdfdfd; color:#333; }
+body.dark .chatbot-input input { background:#222; color:#ddd; }
+.chatbot-input button { background:#b28b00; color:#fff; border:none; padding:12px 18px; cursor:pointer; }
+.chat-icon { position:fixed; bottom:25px; right:25px; width:55px; height:55px; background:#b28b00; border-radius:50%; display:flex; justify-content:center; align-items:center; color:white; font-size:26px; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
 
-    /* === DARK MODE TOGGLE === */
-    .dark-toggle { position: fixed; top: 25px; right: 25px; background: #b28b00; color: #fff; padding: 10px 15px; border-radius: 10px; cursor: pointer; font-weight: 500; z-index: 10000; }
+/* === ANIMATIONS === */
+@keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
 
-    /* === ANIMATIONS === */
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+/* === RESPONSIVE === */
+@media(max-width:768px){ header{padding:15px 25px;} nav{display:none;} .hamburger{display:flex;} nav.active{right:25px; top:60px;} }
 
-    /* === RESPONSIVE === */
-    @media (max-width: 768px) {
-      header { padding: 15px 25px; }
-      nav { display: none; }
-      .hamburger { display: flex; }
-      nav.active { right: 25px; top: 60px; }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>Trend & Brands</h1>
-    <nav id="navbar">
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
-  </header>
+<header>
+<h1>Trend & Brands</h1>
+<nav id="navbar">
+  <a href="#home">Home</a>
+  <a href="#products">Products</a>
+  <a href="#about">About</a>
+  <a href="#careers">Careers</a>
+  <a href="#contact">Contact</a>
+  <div id="darkToggle">🌙 Dark Mode</div>
+</nav>
+<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
 
-  <div class="dark-toggle" id="darkToggle">🌙 Dark Mode</div>
+<section class="hero" id="home">
+<h2>Smart Networking, Simplified</h2>
+<p>Discover professional-grade networking solutions — from routers and access points to cameras and antennas — engineered for modern businesses.</p>
+</section>
 
-  <section class="hero" id="home">
-    <h2>Smart Networking, Simplified</h2>
-    <p>Discover professional-grade networking solutions — from routers and access points to cameras and antennas — engineered for modern businesses.</p>
-  </section>
+<section id="products">
+<h2>Our Product Range</h2>
+<div class="product-grid">
+  <div class="product-card"><img src="product1.jpeg" alt="Ubiquiti Router"><h3>Ubiquiti UniFi Router Pro</h3><p>Powerful enterprise-grade router offering seamless connectivity and advanced network control features.</p></div>
+  <div class="product-card"><img src="product2.jpeg" alt="Switch"><h3>Ubiquiti Cloud Key Gen2</h3><p>Compact controller for UniFi networks with integrated data backup and elegant display design.</p></div>
+  <div class="product-card"><img src="product3.jpeg" alt="Access Point"><h3>TP-Link AX3000 Access Point</h3><p>Next-gen Wi-Fi 6 access point for superior coverage and lightning-fast wireless performance.</p></div>
+  <div class="product-card"><img src="product4.jpeg" alt="Camera"><h3>Logitech C920 HD Pro Webcam</h3><p>Full HD webcam with crystal-clear video and stereo audio for streaming and video conferences.</p></div>
+  <div class="product-card"><img src="product5.jpeg" alt="Antenna"><h3>Hikvision Network Camera DS-2CD2143G0</h3><p>High-resolution camera with night vision and advanced motion detection for secure environments.</p></div>
+  <div class="product-card"><img src="product6.jpeg" alt="Router"><h3>Cisco Business Router 350 Series</h3><p>Reliable small-business router with secure VPN connectivity and optimized throughput performance.</p></div>
+</div>
+</section>
 
-  <section id="products">
-    <h2>Our Product Range</h2>
-    <div class="product-grid">
-      <div class="product-card"><img src="product1.jpeg" alt="Ubiquiti Router"><h3>Ubiquiti UniFi Router Pro</h3><p>Powerful enterprise-grade router offering seamless connectivity and advanced network control features.</p></div>
-      <div class="product-card"><img src="product2.jpeg" alt="Switch"><h3>Ubiquiti Cloud Key Gen2</h3><p>Compact controller for UniFi networks with integrated data backup and elegant display design.</p></div>
-      <div class="product-card"><img src="product3.jpeg" alt="Access Point"><h3>TP-Link AX3000 Access Point</h3><p>Next-gen Wi-Fi 6 access point for superior coverage and lightning-fast wireless performance.</p></div>
-      <div class="product-card"><img src="product4.jpeg" alt="Camera"><h3>Logitech C920 HD Pro Webcam</h3><p>Full HD webcam with crystal-clear video and stereo audio for streaming and video conferences.</p></div>
-      <div class="product-card"><img src="product5.jpeg" alt="Antenna"><h3>Hikvision Network Camera DS-2CD2143G0</h3><p>High-resolution camera with night vision and advanced motion detection for secure environments.</p></div>
-      <div class="product-card"><img src="product6.jpeg" alt="Router"><h3>Cisco Business Router 350 Series</h3><p>Reliable small-business router with secure VPN connectivity and optimized throughput performance.</p></div>
-    </div>
-  </section>
+<section id="about">
+<h2>About Us</h2>
+<p class="section-content">Trend & Brands is a leading provider of premium networking solutions. Our team specializes in creating seamless, high-performance networks for businesses of all sizes.</p>
+</section>
 
-  <section id="contact">
-    <h2>Get in Touch</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:trendandbrands@gmail.com">trendandbrands@gmail.com</a></p>
-      <p>Phone: <a href="tel:+14694890978">+1 469 489 0978</a></p>
-      <p>Location: NY, USA</p>
-    </div>
-  </section>
+<section id="careers">
+<h2>Careers</h2>
+<p class="section-content">We are always looking for passionate individuals to join our team. Explore opportunities in sales, technical support, and network engineering.</p>
+</section>
 
-  <footer>
-    <p>© 2025 Trend & Brands. All Rights Reserved. | Designed by <a href="#">Professor</a></p>
-  </footer>
+<section id="contact">
+<h2>Get in Touch</h2>
+<form>
+  <input type="text" placeholder="Your Name" required />
+  <input type="email" placeholder="Your Email" required />
+  <textarea rows="5" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+<div class="contact-info">
+  <p>Email: <a href="mailto:trendandbrands@gmail.com">trendandbrands@gmail.com</a></p>
+  <p>Phone: <a href="tel:+14694890978">+1 469 489 0978</a></p>
+  <p>Location: NY, USA</p>
+</div>
+</section>
 
-  <!-- === CHATBOT === -->
-  <div class="chat-icon" id="chatToggle">💬</div>
-  <div class="chatbot-container" id="chatbot">
-    <div class="chatbot-header">Ask Trend & Brand</div>
-    <div class="chatbot-messages" id="chatMessages">
-      <p><strong>TrendBot:</strong> 👋 Hello! How can I assist you today?</p>
-    </div>
-    <div class="chatbot-input">
-      <input type="text" id="userInput" placeholder="Type a message..." />
-      <button onclick="sendMessage()">Send</button>
-    </div>
-  </div>
+<footer>
+<p>© 2025 Trend & Brands. All Rights Reserved. | Designed by <a href="#">Professor</a></p>
+</footer>
 
-  <script>
-    const chatToggle = document.getElementById('chatToggle');
-    const chatbot = document.getElementById('chatbot');
-    const chatMessages = document.getElementById('chatMessages');
-    const userInput = document.getElementById('userInput');
+<!-- === CHATBOT === -->
+<div class="chat-icon" id="chatToggle">💬</div>
+<div class="chatbot-container" id="chatbot">
+<div class="chatbot-header">Ask Trend & Brand</div>
+<div class="chatbot-messages" id="chatMessages">
+  <p><strong>TrendBot:</strong> 👋 Hello! How can I assist you today?</p>
+</div>
+<div class="chatbot-input">
+  <input type="text" id="userInput" placeholder="Type a message..." />
+  <button onclick="sendMessage()">Send</button>
+</div>
+</div>
 
-    chatToggle.onclick = () => {
-      chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
-    };
-
-    function sendMessage() {
-      const msg = userInput.value.trim();
-      if (!msg) return;
-      chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
-      userInput.value = '';
-      setTimeout(() => {
-        chatMessages.innerHTML += `<p><strong>TrendBot:</strong> I'm here to help with networking solutions and product info!</p>`;
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }, 600);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    /* === DARK MODE TOGGLE === */
-    const darkToggle = document.getElementById('darkToggle');
-    darkToggle.onclick = () => {
-      document.body.classList.toggle('dark');
-      darkToggle.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
-    };
-
-    /* === HAMBURGER === */
-    const hamburger = document.getElementById('hamburger');
-    const navbar = document.getElementById('navbar');
-    hamburger.onclick = () => { navbar.classList.toggle('active'); }
-  </script>
-</body>
-</html>
+<script>
+const chatToggle = document.getElementById('chatToggle');
+const chatbot = document.getElementById('chatbot');
+const chatMessages = document.getElementById('chatMessages');
+const userInput = document.getElementById('userInput');
+chatToggle.onclick = () => { chatbot.style.display = chatbot.style.display==='flex'?'none':'flex'; }
+function sendMessage(){
+  const msg = userInput.value.trim();
+  if(!msg) return;
+  chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</
