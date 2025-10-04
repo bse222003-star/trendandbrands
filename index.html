@@ -95,10 +95,8 @@ body.dark .chatbot-input input { background:#222; color:#ddd; }
 
 /* === RESPONSIVE === */
 @media(max-width:768px){ header{padding:15px 25px;} nav{display:none;} .hamburger{display:flex;} nav.active{right:25px; top:60px;} }
-
 </style>
 </head>
-
 <body>
 <header>
 <h1>Trend & Brands</h1>
@@ -173,13 +171,21 @@ body.dark .chatbot-input input { background:#222; color:#ddd; }
 </div>
 
 <script>
-const chatToggle = document.getElementById('chatToggle');
+// === CHATBOT FUNCTIONALITY ===
+const chatToggleBtn = document.getElementById('chatToggle');
 const chatbot = document.getElementById('chatbot');
 const chatMessages = document.getElementById('chatMessages');
 const userInput = document.getElementById('userInput');
-chatToggle.onclick = () => { chatbot.style.display = chatbot.style.display==='flex'?'none':'flex'; }
-function sendMessage(){
+
+chatToggleBtn.onclick = () => {
+  chatbot.style.display = chatbot.style.display==='flex'?'none':'flex';
+};
+
+function sendMessage() {
   const msg = userInput.value.trim();
   if(!msg) return;
-  chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</
-
+  chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+  userInput.value = '';
+  setTimeout(()=>{
+    chatMessages.innerHTML += `<p><strong>TrendBot:</strong> I'm here to help with networking solutions and product info!</p>`;
+   
