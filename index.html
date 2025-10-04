@@ -242,6 +242,102 @@
         margin: 10px;
       }
     }
+
+    /* === CHATBOT === */
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .chatbot-toggle {
+      background: linear-gradient(135deg, #007bff, #00bfff);
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .chatbot-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .chatbot-box {
+      display: none;
+      width: 320px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chatbot-header {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbot-body {
+      max-height: 350px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .chatbot-body .bot-msg, .chatbot-body .user-msg {
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+
+    .bot-msg {
+      background: #f1f0f0;
+      align-self: flex-start;
+    }
+
+    .user-msg {
+      background: #007bff;
+      color: white;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+
+    .chatbot-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+      outline: none;
+    }
+
+    .chatbot-input button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .chatbot-input button:hover {
+      background: #0056b3;
+    }
   </style>
 </head>
 
@@ -270,8 +366,7 @@
       </div>
       <div class="product-card">
         <img src="product2.jpeg" alt="Switch">
-        <h3>Cisco 8-Port Gigabit Switch</h3>
-        <p>Advanced Layer 2 switch for seamless connectivity and enterprise-level performance with energy-efficient design.</p>
+        <h3>Ubiquiti Cloud Key Gen2</h3>
       </div>
       <div class="product-card">
         <img src="product3.jpeg" alt="Access Point">
@@ -280,18 +375,16 @@
       </div>
       <div class="product-card">
         <img src="product4.jpeg" alt="Camera">
-        <h3>Ubiquiti Protect G4 Bullet Camera</h3>
+        <h3>Logitech C920 HD Pro Webcam</h3>
         <p>High-definition security camera with IR night vision, waterproof housing, and remote monitoring support.</p>
       </div>
       <div class="product-card">
         <img src="product5.jpeg" alt="Antenna">
-        <h3>Ubiquiti LiteBeam Antenna</h3>
-        <p>Compact outdoor antenna designed for long-range wireless bridge connections and industrial performance.</p>
+        <h3>Hikvision Network Camera DS-2CD2143G0</h3>
       </div>
       <div class="product-card">
         <img src="product6.jpeg" alt="Power Supply">
-        <h3>TrendPower 65W Power Supply</h3>
-        <p>Universal power adapter for networking devices and small electronics with built-in surge protection.</p>
+        <h3>Cisco Business Router 350 Series</h3>
       </div>
     </div>
   </section>
@@ -308,8 +401,8 @@
 
       <div class="contact-info">
         <p>Email: <a href="mailto:trendandbrands@gmail.com">trendandbrands@gmail.com</a></p>
-        <p>Phone: <a href="tel:+923013258801">+92 301 3258801</a></p>
-        <p>Location: Karachi, Pakistan</p>
+        <p>Phone: <a href="tel:+14694890978">+1 469-489-0978</a></p>
+        <p>Location: NY, USA</p>
       </div>
     </div>
   </section>
@@ -317,6 +410,77 @@
   <footer>
     <p>© 2025 Trend & Brands. All Rights Reserved. | Designed by <a href="#">Professor</a></p>
   </footer>
+
+  <!-- === CHATBOT === -->
+  <div class="chatbot-container">
+    <div class="chatbot-toggle" id="chatbotToggle">💬</div>
+    <div class="chatbot-box" id="chatbotBox">
+      <div class="chatbot-header">
+        <h3>Trend & Brands Assistant</h3>
+        <button id="closeChat">×</button>
+      </div>
+      <div class="chatbot-body" id="chatbotBody">
+        <div class="bot-msg">👋 Hello! How can I help you today?</div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="userInput" placeholder="Type a message..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const chatbotToggle = document.getElementById("chatbotToggle");
+    const chatbotBox = document.getElementById("chatbotBox");
+    const closeChat = document.getElementById("closeChat");
+    const sendBtn = document.getElementById("sendBtn");
+    const userInput = document.getElementById("userInput");
+    const chatbotBody = document.getElementById("chatbotBody");
+
+    chatbotToggle.onclick = () => {
+      chatbotBox.style.display = "flex";
+      chatbotToggle.style.display = "none";
+    };
+
+    closeChat.onclick = () => {
+      chatbotBox.style.display = "none";
+      chatbotToggle.style.display = "flex";
+    };
+
+    sendBtn.onclick = sendMessage;
+    userInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (message === "") return;
+      
+      const userMsg = document.createElement("div");
+      userMsg.classList.add("user-msg");
+      userMsg.innerText = message;
+      chatbotBody.appendChild(userMsg);
+
+      userInput.value = "";
+      chatbotBody.scrollTop = chatbotBody.scrollHeight;
+
+      setTimeout(() => {
+        const botReply = document.createElement("div");
+        botReply.classList.add("bot-msg");
+        botReply.innerText = getBotReply(message);
+        chatbotBody.appendChild(botReply);
+        chatbotBody.scrollTop = chatbotBody.scrollHeight;
+      }, 600);
+    }
+
+    function getBotReply(input) {
+      input = input.toLowerCase();
+      if (input.includes("hello") || input.includes("hi")) return "Hey there 👋! How can I assist you?";
+      if (input.includes("product") || input.includes("router") || input.includes("network")) return "We offer a wide range of routers, cameras, and network equipment. Check out the 'Products' section above.";
+      if (input.includes("contact") || input.includes("email")) return "📧 You can contact us at trendandbrands@gmail.com or use the form in the Contact section.";
+      if (input.includes("price") || input.includes("buy")) return "Our sales team will provide quotes. Please send us your inquiry through the contact form.";
+      return "🤖 I'm still learning! Visit our Contact section for more assistance.";
+    }
+  </script>
 </body>
 </html>
-
