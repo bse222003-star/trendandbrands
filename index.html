@@ -3,283 +3,225 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trend & Brands | Networking Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
-
+  <title>Trend & Brands</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@500;700&display=swap" rel="stylesheet" />
   <style>
-    /* === RESET === */
+    :root {
+      --primary: #007aff;
+      --secondary: #00c6ff;
+      --dark: #0a0a0a;
+      --light: #ffffff;
+      --text: #f5f5f5;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
     body {
-      font-family: 'Lora', serif;
-      color: #333;
-      background-color: #fafafa;
-      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #001f3f, #002b55, #003f7f);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      color: #222;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    /* === HEADER === */
     header {
-      background: #fff;
-      padding: 25px 60px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(15px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      padding: 15px 60px;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     header h1 {
-      font-size: 1.9rem;
+      font-family: "Raleway", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--secondary);
       letter-spacing: 1px;
-      color: #b28b00;
     }
 
     nav a {
       margin-left: 30px;
+      text-decoration: none;
+      color: var(--light);
       font-weight: 500;
-      color: #444;
-      transition: color 0.3s;
+      transition: 0.3s;
     }
 
     nav a:hover {
-      color: #b28b00;
+      color: var(--secondary);
     }
 
-    /* === HERO === */
     .hero {
-      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-                  url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7") center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      padding: 140px 20px;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 20, 60, 0.9)), url('hero-bg.jpg') center/cover;
+      animation: fadeIn 2s ease;
     }
 
     .hero h2 {
-      font-size: 2.7rem;
-      color: #222;
-      margin-bottom: 15px;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--light);
+      margin-bottom: 10px;
     }
 
     .hero p {
-      color: #555;
-      font-size: 1.1rem;
-      max-width: 650px;
-      margin: auto;
-      line-height: 1.8;
+      font-size: 1.2rem;
+      color: #ddd;
+      max-width: 700px;
+      line-height: 1.6;
     }
 
-    /* === PRODUCTS === */
-    #products {
-      padding: 90px 40px;
+    section.container {
+      padding: 100px 60px;
       text-align: center;
-      background: #fff;
     }
 
-    #products h2 {
-      font-size: 2.2rem;
-      margin-bottom: 50px;
-      color: #222;
-      position: relative;
-    }
-
-    #products h2::after {
-      content: "";
-      width: 80px;
-      height: 3px;
-      background: #b28b00;
-      display: block;
-      margin: 12px auto 0;
+    h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 40px;
     }
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      max-width: 1200px;
-      margin: auto;
     }
 
     .product-card {
-      background: #fdfdfd;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 20px;
       transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(178,139,0,0.3);
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .product-card img {
       width: 100%;
-      height: 220px;
+      border-radius: 12px;
+      height: 200px;
       object-fit: cover;
     }
 
     .product-card h3 {
-      margin: 20px 0 10px;
-      color: #b28b00;
-      font-size: 1.1rem;
+      margin: 15px 0 10px;
+      font-size: 1.3rem;
+      color: var(--secondary);
     }
 
-    .product-card p {
-      color: #555;
-      font-size: 0.95rem;
-      padding: 0 15px 25px;
-    }
-
-    /* === CONTACT === */
-    #contact {
-      background: #f8f8f8;
-      text-align: center;
-      padding: 90px 30px;
-    }
-
-    #contact h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #222;
-    }
-
-    form {
-      max-width: 600px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input, textarea {
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: 'Lora', serif;
-      transition: 0.3s;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #b28b00;
-      box-shadow: 0 0 8px rgba(178,139,0,0.3);
-      outline: none;
-    }
-
-    button {
-      padding: 15px;
-      background: #b28b00;
-      border: none;
-      color: #fff;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #a08000;
-      box-shadow: 0 0 15px rgba(178,139,0,0.4);
-    }
-
-    .contact-info {
-      margin-top: 25px;
-      color: #555;
-    }
-
-    /* === FOOTER === */
     footer {
-      background: #222;
-      color: #bbb;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px 0;
       text-align: center;
-      padding: 25px 10px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* Chatbot Button */
+    .chatbot-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      transition: 0.4s;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Chat Window */
+    .chat-window {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 320px;
+      background: rgba(10, 10, 20, 0.9);
+      border-radius: 15px;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 15px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .chat-body {
+      height: 250px;
+      overflow-y: auto;
+      padding: 15px;
+      color: #ddd;
       font-size: 0.9rem;
     }
 
-    footer a { color: #b28b00; }
-
-    /* === CHATBOT === */
-    .chatbot-container {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 320px;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
-      overflow: hidden;
-      display: none;
-      flex-direction: column;
-      z-index: 9999;
-    }
-
-    .chatbot-header {
-      background: #b28b00;
-      color: #fff;
-      padding: 12px;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .chatbot-messages {
-      height: 250px;
-      padding: 15px;
-      overflow-y: auto;
-      font-size: 0.95rem;
-    }
-
-    .chatbot-input {
+    .chat-input {
       display: flex;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .chatbot-input input {
+    .chat-input input {
       flex: 1;
-      padding: 12px;
+      padding: 10px;
+      background: transparent;
       border: none;
+      color: white;
       outline: none;
     }
 
-    .chatbot-input button {
-      background: #b28b00;
-      color: #fff;
+    .chat-input button {
+      background: none;
       border: none;
-      padding: 12px 18px;
+      color: var(--secondary);
+      padding: 10px 15px;
       cursor: pointer;
     }
 
-    .chat-icon {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 55px;
-      height: 55px;
-      background: #b28b00;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 26px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Trend & Brands</h1>
@@ -291,8 +233,8 @@
   </header>
 
   <section class="hero" id="home">
-    <h2>Smart Networking, Simplified</h2>
-    <p>Discover professional-grade networking solutions — from routers and access points to cameras and antennas — engineered for modern businesses.</p>
+    <h2>Empowering Connectivity</h2>
+    <p>Discover cutting-edge networking, communication, and tech solutions from top brands like Ubiquiti, Cisco, and TP-Link.</p>
   </section>
 
   <section id="products" class="container">
@@ -301,88 +243,88 @@
       <div class="product-card">
         <img src="product1.jpeg" alt="Ubiquiti Router">
         <h3>Ubiquiti UniFi Router Pro</h3>
-        <p>Powerful enterprise-grade router offering seamless connectivity and advanced network control features.</p>
+        <p>Professional-grade router for high-performance networking with intelligent bandwidth management and dual-band support.</p>
       </div>
       <div class="product-card">
-        <img src="product2.jpeg" alt="Switch">
-        <h3>Ubiquiti Cloud Key Gen2</h3>
-        <p>Compact controller for UniFi networks with integrated data backup and elegant display design.</p>
+        <img src="product2.jpeg" alt="Cisco Switch">
+        <h3>Cisco 8-Port Gigabit Switch</h3>
+        <p>Advanced Layer 2 switch offering enterprise-level performance and energy-efficient design for scalable networks.</p>
       </div>
       <div class="product-card">
-        <img src="product3.jpeg" alt="Access Point">
+        <img src="product3.jpeg" alt="TP-Link Access Point">
         <h3>TP-Link AX3000 Access Point</h3>
-        <p>Next-gen Wi-Fi 6 access point for superior coverage and lightning-fast wireless performance.</p>
+        <p>Next-gen Wi-Fi 6 access point providing superior coverage, speed, and connection stability for modern environments.</p>
       </div>
       <div class="product-card">
         <img src="product4.jpeg" alt="Camera">
-        <h3>Logitech C920 HD Pro Webcam</h3>
-        <p>Full HD webcam with crystal-clear video and stereo audio for streaming and video conferences.</p>
+        <h3>Ubiquiti Protect G4 Bullet Camera</h3>
+        <p>High-definition security camera with night vision, waterproof build, and advanced remote monitoring support.</p>
       </div>
       <div class="product-card">
         <img src="product5.jpeg" alt="Antenna">
-        <h3>Hikvision Network Camera DS-2CD2143G0</h3>
-        <p>High-resolution camera with night vision and advanced motion detection for secure environments.</p>
+        <h3>Ubiquiti LiteBeam Antenna</h3>
+        <p>Compact outdoor antenna built for long-range wireless bridge connections with unmatched reliability.</p>
       </div>
       <div class="product-card">
-        <img src="product6.jpeg" alt="Router">
-        <h3>Cisco Business Router 350 Series</h3>
-        <p>Reliable small-business router with secure VPN connectivity and optimized throughput performance.</p>
+        <img src="product6.jpeg" alt="Power Supply">
+        <h3>TrendPower 65W Power Supply</h3>
+        <p>Universal power adapter with built-in surge protection designed for networking and industrial devices.</p>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Get in Touch</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:trendandbrands@gmail.com">trendandbrands@gmail.com</a></p>
-      <p>Phone: <a href="tel:+14694890978">+1 469 489 0978</a></p>
-      <p>Location: NY, USA</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Trend & Brands. All Rights Reserved. | Designed by <a href="#">Professor</a></p>
+  <footer id="contact">
+    <p>&copy; 2025 Trend & Brands | All Rights Reserved</p>
   </footer>
 
-  <!-- === CHATBOT === -->
-  <div class="chat-icon" id="chatToggle">💬</div>
-  <div class="chatbot-container" id="chatbot">
-    <div class="chatbot-header">TrendBot Assistant</div>
-    <div class="chatbot-messages" id="chatMessages">
-      <p><strong>TrendBot:</strong> 👋 Hello! How can I assist you today?</p>
+  <!-- Chatbot -->
+  <button class="chatbot-button" id="chatBtn">💬</button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">TrendBot Assistant</div>
+    <div class="chat-body" id="chatBody">
+      <p><b>TrendBot:</b> Hi there! 👋 How can I assist you today?</p>
     </div>
-    <div class="chatbot-input">
-      <input type="text" id="userInput" placeholder="Type a message..." />
-      <button onclick="sendMessage()">Send</button>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">➤</button>
     </div>
   </div>
 
   <script>
-    const chatToggle = document.getElementById('chatToggle');
-    const chatbot = document.getElementById('chatbot');
-    const chatMessages = document.getElementById('chatMessages');
-    const userInput = document.getElementById('userInput');
+    const chatBtn = document.getElementById("chatBtn");
+    const chatWindow = document.getElementById("chatWindow");
+    const chatBody = document.getElementById("chatBody");
+    const userInput = document.getElementById("userInput");
 
-    chatToggle.onclick = () => {
-      chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
+    chatBtn.onclick = () => {
+      chatWindow.style.display =
+        chatWindow.style.display === "flex" ? "none" : "flex";
     };
 
     function sendMessage() {
-      const msg = userInput.value.trim();
-      if (!msg) return;
-      chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
-      userInput.value = '';
-      setTimeout(() => {
-        chatMessages.innerHTML += `<p><strong>TrendBot:</strong> I'm here to help with networking solutions and product info!</p>`;
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }, 600);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+      const message = userInput.value.trim();
+      if (message === "") return;
+      const userMsg = document.createElement("p");
+      userMsg.innerHTML = `<b>You:</b> ${message}`;
+      chatBody.appendChild(userMsg);
+
+      const reply = document.createElement("p");
+      reply.innerHTML = `<b>TrendBot:</b> ${getReply(message)}`;
+      chatBody.appendChild(reply);
+
+      userInput.value = "";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function getReply(msg) {
+      msg = msg.toLowerCase();
+      if (msg.includes("price") || msg.includes("cost"))
+        return "Please contact sales@trendandbrands.com for product pricing.";
+      if (msg.includes("hello") || msg.includes("hi"))
+        return "Hello! How can I help you today?";
+      if (msg.includes("router"))
+        return "We recommend the Ubiquiti UniFi Router Pro for top performance!";
+      return "Our team will reach out soon! 😊";
     }
   </script>
 </body>
