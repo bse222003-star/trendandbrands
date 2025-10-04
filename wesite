@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trend & Brands — Your Trusted Source for Quality Electronics, Networking, and Smart Tech Products." />
+  <title>Trend & Brands | Trusted Electronics Distributor</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #f9fafc; color: #222; }
+    header { background: #0d6efd; color: white; padding: 20px; text-align: center; }
+    nav { background: #084298; display: flex; justify-content: center; padding: 10px; }
+    nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+    .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #0d6efd, #0dcaf0); color: white; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; }
+    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 30px; color: #0d6efd; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .product { background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; text-align: center; padding-bottom: 20px; }
+    .product img { width: 100%; height: 200px; object-fit: cover; }
+    .product h3 { margin: 15px 0 5px; }
+    .product p { color: #555; font-size: 0.9rem; padding: 0 10px; }
+    footer { background: #0d6efd; color: white; text-align: center; padding: 30px 10px; margin-top: 40px; }
+    footer p { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Trend & Brands</h1>
+    <p>Your Trusted Source for Quality Electronics</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to Trend & Brands</h1>
+    <p>We provide cutting-edge networking and electronic products from trusted global brands.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="max-width:800px; margin:auto; text-align:center; font-size:1rem; line-height:1.6;">
+      Trend & Brands is a modern electronics distributor and online retailer focused on delivering authentic, high-quality technology products.
+      Our catalog includes leading brands like Ubiquiti Networks, TP-Link, Logitech, and more. We supply networking devices, routers, smart home systems,
+      and other consumer electronics to clients worldwide. Our mission is to provide reliable products and trustworthy service to businesses and customers alike.
+    </p>
+  </section>
+
+  <section id="products">
+    <h2>Featured Products</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1580894908361-967195033215" alt="Ubiquiti Router" />
+        <h3>Ubiquiti UniFi Router</h3>
+        <p>High-performance enterprise-grade router designed for speed and security.</p>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1606813909355-54680a51f3d5" alt="Smart Security Camera" />
+        <h3>Smart Security Camera</h3>
+        <p>Full HD Wi-Fi camera with motion detection and mobile alerts for home and office.</p>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1616627450894-1f891657bdbb" alt="Wireless Headphones" />
+        <h3>Wireless Bluetooth Headphones</h3>
+        <p>Noise-cancelling headphones with 40-hour battery life and deep bass audio.</p>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1578589318436-436a2a8cc36c" alt="Wi-Fi Access Point" />
+        <h3>Ubiquiti Access Point</h3>
+        <p>Next-gen Wi-Fi 6 Access Point ideal for large homes or business environments.</p>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1596477602103-7141b1a7e5ce" alt="Smart Speaker" />
+        <h3>Smart Voice Assistant Speaker</h3>
+        <p>Control your devices, play music, and get updates hands-free with voice control.</p>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1606818723262-b496d48e89b2" alt="Gaming Mouse" />
+        <h3>RGB Gaming Mouse</h3>
+        <p>Precision-engineered gaming mouse with 7 programmable buttons and LED lights.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center; font-size:1rem;">We’d love to hear from you! Reach out for partnership or product inquiries.</p>
+    <div style="text-align:center; margin-top:15px;">
+      <p><strong>Email:</strong> mohrammahar36@gmail.com</p>
+      <p><strong>Warehouse Address:</strong> 1450 Market St, San Francisco, CA 94103, USA</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Trend & Brands. All Rights Reserved.</p>
+    <p>Trusted Electronics Distributor | Networking | Smart Devices | Accessories</p>
+  </footer>
+</body>
+</html>
